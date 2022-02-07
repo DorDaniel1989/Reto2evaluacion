@@ -1,0 +1,31 @@
+{
+  "name": "frontendnpm",
+  "version": "1.0.0",
+  "description": "Frontend version npm",
+  "scripts": {
+    "build": "parcel build ./src/index.html --public-url /2daw3/danielo/dist",
+    "proxy": "parcel build ./src/index.html",
+    "start": "parcel serve ./src/index.html  --open"
+  },
+  "author": "dani",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.2",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.13.0",
+    "leaflet": "^1.7.1"
+  },
+  "alias": {
+    "leaflet": {
+      "global": "L"
+    },
+    "bootstrap-sass": {
+      "global": "bootstrap"
+    }
+  }
+}

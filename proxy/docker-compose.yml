@@ -1,0 +1,21 @@
+
+version: '3.1'
+services:
+    apiservice:
+      build: 
+        context: ..\WebApiTiempo
+      restart: always
+      ports:
+      - 4000:80
+
+    # appconsol:
+    #   build:
+    #       context: ..\ConsoleApp
+    #   restart: always
+
+    proxy:
+      image: nginx
+      ports:
+        - 80:80
+      volumes:
+        - ./default.conf:/etc/nginx/conf.d/default.conf:ro      

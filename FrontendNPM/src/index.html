@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+        integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css"
+        integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilos/estilos.sass">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Varela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bangers&family=Varela&display=swap"
+        rel="stylesheet">
+    <title>METEOAPP</title>
+</head>
+
+<body>
+    <!-- DIV OCULTO DEL FORMULARIO DE REGISTRO -->
+    <div class="container2">
+        <div class="formulario">
+            <h1>Create Account</h1>
+            <form id="form">
+                <div class="input-box">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="userInput" value="" name="username"></input>
+                    <i class="iconicstroke-x"></i>
+                    <i class="iconicstroke-check"></i>
+                </div>
+                <div class="input-box">
+                    <label for="text">Nombre</label>
+                    <input type="text" id="fNameInput" value="" name="firstName"></input>
+                    <i class="iconicstroke-x"></i>
+                    <i class="iconicstroke-check"></i>
+                </div>
+                <div class="input-box">
+                    <label for="text">Apellido</label>
+                    <input type="text" id="lNameInput" value="" name="lastName"></input>
+                    <i class="iconicstroke-x"></i>
+                    <i class="iconicstroke-check"></i>
+                </div>
+                <div class="input-box">
+                    <label for="text">Rol</label>
+                    <input type="text" id="roleInput" value="" name="role"></input>
+                    <i class="iconicstroke-x"></i>
+                    <i class="iconicstroke-check"></i>
+                </div>
+                <div class="input-box">
+                    <label for="password check">Password </label>
+                    <input type="password" id="passInput" value="" name="password"> </input>
+
+                </div>
+                <input class="button" id="botonRegistrar" value="Enviar" type="button"></input>
+                <input class="button" id="botonAtras" value="Atrás" type="button"></input>
+            </form>
+        </div>
+    </div>
+    <!-- FIN DIV OCULTO DEL FORMULARIO DE REGISTRO -->
+
+
+
+    <!-- DIV OCULTO DEL LOGIN -->
+
+
+    <div class="loginOculto">
+        <div class="container3">
+            <div>
+                <h1>METEOAPP</h1>
+            </div>
+
+            <div class="formLogin" id="tab">
+                <label>Username</label>
+                <input type="text" placeholder="user" required id="usr"><br>
+                <label for="password">password</label>
+                <input type="password" placeholder="password" required id="pass"><br>
+                <button type="submit" class="btn suc" id="botonLogin">Login</button><br>
+                <button type="button" id="closeForm" class="btn exit" onclick="closeform()">Cancel</button>
+            </div>
+            <div class="opt">
+                <button type="button" class="btn op" onclick="openform()" id="one">Login</button>
+                <br>
+                <button type="button" class="btn suc" id="registrarse">Registrate</button><br>
+            </div>
+        </div>
+    </div>
+
+
+    <!--FIN DIV OCULTO DEL LOGIN -->
+
+    <!-- DIV PAGINA PRINCIPAL-->
+    <div class="container">
+        <!-- Primera fila -->
+        <div class="row row1">
+            <div class="col col-lg-12 nav">
+                <!-- LOGIN FORM -->
+                <div class="topnav">
+                    <div class="menu">
+                        <a class="active">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">LogOut</a>
+                    </div>
+                    <div class="titulo">
+                        <img src="images/drop32.png" alt="">
+                        <img src="images/frio32.png" alt="">
+                        <img src="images/humedad32.png" alt="">
+                        <h1>METEOAPP</h1>
+                        <img src="images/temperatura-alta32.png" alt="">
+                        <img src="images/tempMedia32.png" alt="">
+                        <img src="images/wind32.png" alt="">
+
+                    </div>
+                    <div class="date">
+                         <span id="diaS">Dia</span> <span id="dia"> </span><span id="mes">Mes</span> <span
+                            id="año">Año</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda fila -->
+        <div class="row justify-content-md-center ">
+
+            <div class="col-md-auto" id="map"></div>
+        </div>
+        <!--  fila -->
+        <div class="row panelInforme justify-content-md-center">
+            <div class="col col-lg-2  opciones">
+
+                <div class="draggable " id="precipitaciones">
+                    <p></p> <img src="images/drop64.png" alt="icono precipitaciones">
+                </div>
+                <div class="draggable" id="velocidadViento">
+                    <p> </p> <img src="images/wind64.png" alt="icono velocidad">
+                </div>
+                <div class="draggable" id="humedad">
+                    <p></p> <img src="images/humedad64.png" alt="icono humedad">
+                </div>
+                <div class="draggable" id="tempMax">
+                    <p> </p> <img src="images/temperatura-alta64.png" alt="icono temperatura maxima">
+                </div>
+
+                <div class="draggable" id="tempMin">
+                    <p></p> <img src="images/frio64.png" alt="icono temperatura minima">
+                </div>
+
+                <div class="draggable" id="tempMedia">
+                    <p> </p> <img src="images/tempMedia64.png" alt="icono temperatura media">
+                </div>
+            </div>
+
+            <div class="col col-lg-8 " id="panel"></div>
+
+            <div class="col col-lg-2 filtro">
+                <button id="añadir">Añadir Municipio</button>
+                <select name="opcionEstacion" id="opcionLocalidad"></select>
+                <button id="ocultar">Ocultar/Mostrar Mapa</button>
+            </div>
+        </div>
+
+        <!-- QUINTA FILA FOOTER -->
+        <div class="col col-lg-12">
+            <footer class="bg-primary text-light text-center text-md-left footer opacity-75">
+                <div class="container">
+                    <div class="row pt-4">
+                        <div class="col-sm-6 col-md-4 pb-4">
+                            <h4 class="mb-4">
+                                EUSKALMET
+                            </h4>
+                        </div>
+                        <div class="col-sm-6 col-md-4 pb-4">
+                            <h4 class="mb-4">
+                                OPENWEATHER
+                            </h4>
+                        </div>
+                        <div class="col-md-4 pb-4">
+                            <h4 class="mb-4">
+                                DOCKER
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- <div class="col d-flex justify-content-center mb-4">
+                        <p class="text-center text-secondary border-top border-secondary py-4">
+                            2DAW3 © 2022
+                        </p>
+                    </div> -->
+            </footer>
+        </div>
+
+
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
+        integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"
+        integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
